@@ -1,0 +1,161 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap");
+
+/* Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+user-bio
+
+body {
+  font-family: "Playfair Display", cursive;
+  line-height: 1.6;
+  background-image: url("assets/abstract.jpg"); 
+  background-size: cover;
+}
+
+/* Profile Card Styles */
+article[data-testid="test-profile-card"] {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+/* Avatar Styles */
+figure {
+  width: 200px;
+  height: 200px;
+  border-radius: 10%;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 5px solid #fff;
+  margin: 0 auto;           
+  display: flex;             
+  justify-content: center;
+}
+
+figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Content Styles */
+header {
+  flex-basis: 100%;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+h2[data-testid="test-user-name"] {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #964b00; /* brown color */
+}
+
+p[data-testid="test-user-bio"] {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.8;
+  
+  /* width: 60%; */
+}
+
+time[data-testid="test-user-time"] {
+  font-size: 16px;
+  color: #999;
+}
+
+/* Social Links Styles */
+nav[data-testid="test-user-social-links"] ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+nav[data-testid="test-user-social-links"] a {
+  text-decoration: none;
+  color: #964b00; /* brown color */
+  transition: color 0.2s ease;
+  font-size: 18px;
+}
+
+nav[data-testid="test-user-social-links"] a:hover {
+  color: #452b1f; /* darker brown color */
+}
+
+/* Section Cards */
+section {
+  /* flex-basis: 45%; */
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* height: 300px; set a fixed height for the section cards */
+  overflow-y: auto;
+}
+
+h3 {
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: #964b00; /* brown color */
+}
+
+ul[data-testid="test-user-hobbies"],
+ul[data-testid="test-user-dislikes"] {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul[data-testid="test-user-hobbies"] li,
+ul[data-testid="test-user-dislikes"] li {
+  margin-bottom: 10px;
+  color: #666;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  article[data-testid="test-profile-card"] {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  figure {
+    margin: 20px auto;
+  }
+
+  section {
+    flex-basis: 100%;
+    height: auto; /* reset height for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  article[data-testid="test-profile-card"] {
+    padding: 20px;
+  }
+
+  figure {
+    width: 150px;
+    height: 150px;
+  }
+
+  h2[data-testid="test-user-name"] {
+    font-size: 28px;
+  }
+}

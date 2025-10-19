@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <section> -->
+      <article data-testid="test-profile-card">
+        <header>
+          <h2 data-testid="test-user-name">Augustine Ugwu</h2>
+
+          <time data-testid="test-user-time"></time>
+          <nav data-testid="test-user-social-links">
+            <ul>
+              <li>
+                <a
+                  href="https://x.com/auxtyn_vince"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-testid="test-user-social-twitter"
+                  >Twitter</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/ugwu-augustine-6a995519a/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-testid="test-user-social-linkedin"
+                  >LinkedIn</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </header>
+        <section>
+          <figure>
+            <img
+              data-testid="test-user-avatar"
+              src="assets/Passport.JPG"
+              alt="Augustine Ugwu's avatar"
+            />
+          </figure>
+            <p data-testid="test-user-bio">
+             Frontend development enthusiast
+            </p>
+
+        <section>
+          <h3>Hobbies</h3>
+          <ul data-testid="test-user-hobbies">
+            <li>Reading</li>
+            <li>Hiking</li>
+            <li>Coding</li>
+          </ul>
+        </section>
+        <br>
+
+        <section>
+          <h3>Dislikes</h3>
+          <ul data-testid="test-user-dislikes">
+            <li>Procrastination</li>
+            <li>Traffic</li>
+            <li>Bad UI</li>
+          </ul>
+        </section>
+
+       
+      </article>
+    </section>
+
+    <script>
+      const timeElement = document.querySelector(
+        '[data-testid="test-user-time"]'
+      );
+      timeElement.textContent = Date.now();
+    </script>
+  </body>
+</html>
