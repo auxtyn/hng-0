@@ -4,78 +4,97 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <title>Augustine Ugwu</title>
   </head>
   <body>
-    <!-- <section> -->
-      <article data-testid="test-profile-card">
-        <header>
-          <h2 data-testid="test-user-name">Augustine Ugwu</h2>
 
-          <time data-testid="test-user-time"></time>
-          <nav data-testid="test-user-social-links">
-            <ul>
-              <li>
-                <a
-                  href="https://x.com/auxtyn_vince"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-testid="test-user-social-twitter"
-                  >Twitter</a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://www.linkedin.com/in/ugwu-augustine-6a995519a/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-testid="test-user-social-linkedin"
-                  >LinkedIn</a
-                >
-              </li>
-            </ul>
-          </nav>
-        </header>
-        <section>
-          <figure>
-            <img
-              data-testid="test-user-avatar"
-              src="assets/Passport.JPG"
-              alt="Augustine Ugwu's avatar"
-            />
-          </figure>
-            <p data-testid="test-user-bio">
-             Frontend development enthusiast
-            </p>
 
-        <section>
-          <h3>Hobbies</h3>
-          <ul data-testid="test-user-hobbies">
-            <li>Reading</li>
-            <li>Hiking</li>
-            <li>Coding</li>
+  <article data-testid="test-profile-card">
+      <header class="site-header" role="banner">
+    <!-- <div class="brand">
+      <a class="brand-link" href="index.html">Augustine Ugwu</a>
+    </div> -->
+    <nav class="site-nav" role="navigation" aria-label="Main">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+      <header>
+        <h2 data-testid="test-user-name">Augustine Ugwu</h2>
+
+        <time data-testid="test-user-time"></time>
+        <nav data-testid="test-user-social-links">
+          <ul>
+            <li>
+              <a
+                href="https://x.com/auxtyn_vince"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-testid="test-user-social-twitter"
+                >Twitter</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/ugwu-augustine-6a995519a/"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-testid="test-user-social-linkedin"
+                >LinkedIn</a
+              >
+            </li>
           </ul>
-        </section>
-        <br>
+        </nav>
+      </header>
 
-        <section>
-          <h3>Dislikes</h3>
-          <ul data-testid="test-user-dislikes">
-            <li>Procrastination</li>
-            <li>Traffic</li>
-            <li>Bad UI</li>
-          </ul>
-        </section>
+      <section class="test-section">
+        <figure>
+          <img
+            data-testid="test-user-avatar"
+            src="assets/Passport.jpg"
+            alt="Augustine Ugwu's avatar"
+          />
+        </figure>
 
-       
-      </article>
-    </section>
+        <div class="profile-content">
+          <p data-testid="test-user-bio">
+            I’m a frontend-focused developer who loves designing clean, accessible
+            interfaces and solving problems with code. I build responsive web
+            experiences and enjoy reading, hiking and exploring new UI patterns.
+          </p>
+
+          <div class="lists-wrapper">
+            <section class="lists">
+              <h3>Hobbies</h3>
+              <ul data-testid="test-user-hobbies">
+                <li>Reading</li>
+                <li>Hiking</li>
+                <li>Coding</li>
+              </ul>
+            </section>
+
+            <section class="lists">
+              <h3>Dislikes</h3>
+              <ul data-testid="test-user-dislikes">
+                <li>Procrastination</li>
+                <li>Traffic</li>
+                <li>Bad UI</li>
+              </ul>
+            </section>
+          </div>
+        </div>
+      </section>
+    </article>
 
     <script>
-      const timeElement = document.querySelector(
-        '[data-testid="test-user-time"]'
-      );
-      timeElement.textContent = Date.now();
+      // nicer time display
+      const timeElement = document.querySelector('[data-testid="test-user-time"]');
+      if (timeElement) {
+        timeElement.textContent = new Date().toLocaleString();
+      }
     </script>
   </body>
 </html>

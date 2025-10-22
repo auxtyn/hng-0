@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header" role="banner">
+    
+      <nav class="site-nav" role="navigation" aria-label="Main">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="page-content">
+      
+      <form id="contact-form" novalidate>
+        <h2>Contact</h2>
+        <br />
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="name">Full Name</label>
+            <input id="name" type="text" required />
+            <div id="name-error" class="field-error" aria-live="polite"></div>
+          </div>
+
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input id="email" type="email" required />
+            <div id="email-error" class="field-error" aria-live="polite"></div>
+          </div>
+
+          <div class="form-field">
+            <label for="subject">Subject</label>
+            <input id="subject" type="text" required />
+            <div id="subject-error" class="field-error" aria-live="polite"></div>
+          </div>
+
+          <div class="form-field form-field--full">
+            <label for="message">Message</label>
+            <textarea id="message" required></textarea>
+            <div id="message-error" class="field-error" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit">Send Message</button>
+        </div>
+      </form>
+    </main>
+
+    <!-- Modal: hidden by default -->
+    <div
+      class="modal-overlay"
+      id="success-modal"
+      role="dialog"
+      aria-hidden="true"
+      aria-labelledby="modal-title"
+      aria-describedby="modal-desc"
+    >
+      <div class="modal" role="document">
+        <div class="modal-body">
+          <div class="modal-icon" aria-hidden="true">✓</div>
+          <div class="modal-text">
+            <h3 id="modal-title">Message sent successfully!</h3>
+            <p id="modal-desc">
+              Thank you — your message has been received. I'll get back to you
+              shortly.
+            </p>
+            <div class="modal-actions">
+              <button class="btn ghost" id="modal-close">Close</button>
+              <button class="btn primary" id="modal-ok">Okay</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // form handling + modal display
+      (function () {
+        const form = document.getElementById("contact-form");
+        const nameInput = document.getElementById("name");
+        const emailInput = document.getElementById("email");
+        const subjectInput = document.getElementById("subject");
+        const messageInput = document.getElementById("message");
+
+        const modalOverlay = document.getElementById("success-modal");
+        const modalClose = document.getElementById("modal-close");
+        const modalOk = document.getElementById("modal-ok");
+        const modalTitle = document.getElementById("modal-title");
+        const modalDesc = document.getElementById("modal-desc");
+
+        function showModal(
+          title = "Message sent successfully!",
+          desc = "Thank you — your message has been received."
+        ) {
+          modalTitle.textContent = title;
+          modalDesc.textContent = desc;
+          modalOverlay.classList.add("open");
+          modalOverlay.setAttribute("aria-hidden", "false");
+          // move focus to primary action for keyboard users
+          modalOk.focus();
+          // prevent background scroll
+          document.body.style.overflow = "hidden";
+        }
+
+        function hideModal() {
+          modalOverlay.classList.remove("open");
+          modalOverlay.setAttribute("aria-hidden", "true");
+          document.body.style.overflow = "";
+          // return focus to form submit
+          form.querySelector('button[type="submit"]').focus();
+        }
+
+        modalClose.addEventListener("click", hideModal);
+        modalOk.addEventListener("click", hideModal);
+
+        modalOverlay.addEventListener("click", (e) => {
+          if (e.target === modalOverlay) hideModal();
+        });
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && modalOverlay.classList.contains("open")) {
+            hideModal();
+          }
+        });
+
+        function validateForm() {
+          const errors = {};
+          if (!nameInput.value.trim()) errors.name = "Name is required";
+          if (
+            !emailInput.value.trim() ||
+            !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)
+          )
+            errors.email = "Valid email is required";
+          if (!subjectInput.value.trim()) errors.subject = "Subject is required";
+          if (!messageInput.value.trim() || messageInput.value.length < 10)
+            errors.message = "Message must be at least 10 characters";
+          return errors;
+        }
+
+        function clearErrors() {
+          document.querySelectorAll(".field-error").forEach((el) => (el.textContent = ""));
+        }
+
+        function displayErrors(errors) {
+          clearErrors();
+          if (errors.name) document.getElementById("name-error").textContent = errors.name;
+          if (errors.email) document.getElementById("email-error").textContent = errors.email;
+          if (errors.subject) document.getElementById("subject-error").textContent = errors.subject;
+          if (errors.message) document.getElementById("message-error").textContent = errors.message;
+        }
+
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const errors = validateForm();
+          if (Object.keys(errors).length) {
+            displayErrors(errors);
+            return;
+          }
+          // pretend to send, then show modal
+          // replace with real submit logic as needed
+          form.reset();
+          showModal("Message sent successfully!", "Thanks — your message was sent. I'll reply soon.");
+        });
+      })();
+    </script>
+  </body>
+</html>
