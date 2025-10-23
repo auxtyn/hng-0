@@ -10,7 +10,6 @@
 }
 
 
-
 /* Reset */
 *{ box-sizing: border-box; margin: 0; padding: 0; } 
 html,body{ height:100%; }
@@ -39,7 +38,9 @@ body{
   max-width:920px;
   margin:0 0 18px;
 }
-
+.contact-heading{
+ text-align: center;
+}
 /* Card container */
 article[data-testid="test-profile-card"]{
   width:min(920px,96vw);
@@ -87,7 +88,7 @@ figure{
   gap:16px;
 }
 figure img{
-  width:200px; height:200px; object-fit:cover;
+  width:300px; height:200px; object-fit:cover;
   border-radius:10px; /* changed from circular to 10px rounded corners */
   border:6px solid rgba(255,255,255,0.9);
   box-shadow: 0 8px 30px rgba(11,15,39,0.12);
@@ -206,7 +207,7 @@ main[data-testid="test-about-page"]{
   padding:32px; border-radius:14px; box-shadow:0 18px 40px rgba(11,15,39,0.08);
   border:1px solid rgba(11,15,39,0.06); color:#071127; line-height:1.75; font-size:16px;
 }
-main[data-testid="test-about-page"] h2{ font-size:30px; margin:0 0 12px 0 }
+main[data-testid="test-about-page"] h2{ font-size:30px; margin:0 0 12px 0; text-align: center; }
 main[data-testid="test-about-page"] h3{ font-size:18px; margin:20px 0 8px 0; font-weight:600 }
 main[data-testid="test-about-page"] p, main[data-testid="test-about-page"] ul, main[data-testid="test-about-page"] li{ color:#233044; font-size:10px }
 main[data-testid="test-about-page"] ul{ padding-left:1.15rem; margin:8px 0 0 0 }
@@ -253,7 +254,8 @@ main[data-testid="test-about-page"] section{ margin-bottom:12px }
 
 .site-nav ul{
   display: flex;
-  flex-direction: row; /* horizontal list */
+  justify-content: center;
+  flex-direction: row; 
   gap: 12px;
   list-style: none;
   margin: 0;
@@ -303,7 +305,7 @@ main[data-testid="test-about-page"] section{ margin-bottom:12px }
   .site-nav{
     flex: none;
     width: 100%;
-    justify-content: flex-start;
+    justify-content: center;
   }
   .site-nav ul{
     flex-direction: row;
@@ -322,7 +324,9 @@ main[data-testid="test-about-page"] section{ margin-bottom:12px }
     padding:12px 14px;
   }
   .brand-link{ font-size:22px; }
-  .site-nav ul{ width:100%; flex-wrap:wrap; gap:8px; margin-top:10px; }
+  .site-nav ul{ 
+    width:100%;
+     flex-wrap:wrap; gap:8px; margin-top:10px; }
   .site-nav a{
     width:100%;
     text-align:center;
@@ -334,7 +338,7 @@ main[data-testid="test-about-page"] section{ margin-bottom:12px }
 @media (max-width:420px){
   .site-header{ width:calc(100% - 40px); margin:0 auto 16px; padding:10px; }
   .brand-link{ font-size:20px; }
-  .site-nav a{ padding:10px; font-size:14px; }
+  .site-nav a{ padding:0px; font-size:14px; }
 }
 
 /* Responsive */
@@ -366,7 +370,7 @@ main[data-testid="test-about-page"] section{ margin-bottom:12px }
 @media (max-width:420px){
   body{ padding:14px; gap:12px }
   article[data-testid="test-profile-card"]{ padding:14px; gap:12px; box-shadow:0 8px 22px rgba(15,23,42,0.08) }
-  figure img{ width:120px; height:120px }
+  figure img{ width:310px; height:120px }
   h2[data-testid="test-user-name"]{ font-size:20px }
   main[data-testid="test-about-page"]{ margin:18px 12px; padding:16px; font-size:14px }
 }
